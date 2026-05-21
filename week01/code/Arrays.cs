@@ -8,6 +8,9 @@ public static class Arrays
         var data = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
         RotateListRight(data, 3);
         Console.WriteLine(string.Join(", ", data));
+
+        Console.WriteLine("\nStack example:");
+        StackExample();
     }
    
     /// <summary>
@@ -70,5 +73,22 @@ public static class Arrays
         data.AddRange(rotatedList);
 
         // Todo Problem 2 End
+    }
+
+    public static void StackExample()
+    {
+        Stack<string> numbers = new Stack<string>();
+        numbers.Push("One");
+        numbers.Push("Two");
+        numbers.Push("Three");
+
+        foreach (string number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
+        Console.WriteLine("\nPopping '{0}'", numbers.Pop());
+        Console.WriteLine("Peek at next item to destack: {0}",
+            numbers.Peek());
     }
 }
