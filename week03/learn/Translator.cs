@@ -24,7 +24,11 @@ public class Translator
     /// <returns>fixed array of divisors</returns>
     public void AddWord(string fromWord, string toWord)
     {
-        // ADD YOUR CODE HERE
+        var lowerFromWord = fromWord.ToLower();
+        if (!_words.ContainsKey(lowerFromWord))
+        {
+            _words[lowerFromWord] = toWord;
+        }
     }
 
     /// <summary>
@@ -35,6 +39,12 @@ public class Translator
     public string Translate(string fromWord)
     {
         // ADD YOUR CODE HERE
-        return "";
+        var lowerFromWord = fromWord.ToLower();
+        if (_words.ContainsKey(lowerFromWord))
+        {
+            return _words[lowerFromWord];
+        }
+
+        return "???";
     }
 }
