@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Transactions;
 
 public class BinarySearchTree : IEnumerable<int>
 {
@@ -11,7 +12,7 @@ public class BinarySearchTree : IEnumerable<int>
     {
         // Create new node
         Node newNode = new(value);
-        // If the list is empty, then point both head and tail to the new node.
+        // If the tree is empty, make the new node the root.
         if (_root is null)
         {
             _root = newNode;
@@ -81,6 +82,13 @@ public class BinarySearchTree : IEnumerable<int>
     private void TraverseBackward(Node? node, List<int> values)
     {
         // TODO Problem 3
+        if (node is not null)
+        {
+            TraverseBackward(node.Right, values);
+            values.Add(node.Data);
+            TraverseBackward(node.Left, values);
+        }
+        return;
     }
 
     /// <summary>
